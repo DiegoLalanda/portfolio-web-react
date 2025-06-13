@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diego Lalanda | Portfolio</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Welcome to my personal portfolio. Discover my projects, skills, and experience.">
+  <meta name="keywords" content="portfolio, react, typescript, tailwindcss, frontend developer, web developer, projects, skills">
+  <meta name="author" content="[Your Name Here - Replace This]">
+
+  <!-- Open Graph Meta Tags (for social sharing) -->
+  <meta property="og:title" content="My Awesome Portfolio">
+  <meta property="og:description" content="Check out my work, skills, and experience.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="[Your Website URL Here - Replace This]">
+  <meta property="og:image" content="https://picsum.photos/1200/630?grayscale&text=Portfolio+Preview">
+  <meta property="og:image:alt" content="A preview of my portfolio website">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="My Awesome Portfolio">
+  <meta name="twitter:description" content="Check out my work, skills, and experience.">
+  <meta name="twitter:image" content="https://picsum.photos/1200/630?grayscale&text=Portfolio+Preview">
+  <!-- <meta name="twitter:site" content="@yourtwitterhandle"> -->
+  <!-- <meta name="twitter:creator" content="@yourtwitterhandle"> -->
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class', // or 'media'
+      theme: {
+        extend: {
+          animation: {
+            'fade-in-up': 'fadeInUp 0.7s ease-out forwards',
+            'subtle-bob': 'subtleBob 3s ease-in-out infinite',
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            subtleBob: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-8px)' },
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'], // Example: Using Inter font
+          },
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    /* For smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .font-display {
+      font-family: 'Playfair Display', serif;
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.1.0",
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react-icons/": "https://esm.sh/react-icons@^5.5.0/",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/"
+  }
+}
+</script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 transition-colors duration-300">
+  <div id="root"></div>
+  <script type="module" src="src/main.tsx"></script>
+</body>
+</html>
