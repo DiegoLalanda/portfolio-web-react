@@ -3,7 +3,10 @@ import React from 'react';
 import { useLanguage } from '../../hooks/useLanguage';
 import { SectionWrapper } from '../common/SectionWrapper';
 import type { PersonalData, Interest } from '../../types';
-import { FiDownload, FiCode, FiMusic, FiCoffee, FiBookOpen } from 'react-icons/fi';
+
+// Imports de iconos actualizados
+import { FiDownload, FiCode, FiPenTool, FiCpu } from 'react-icons/fi'; // Se cambia FiMusic y FiBookOpen
+import { IoGameControllerOutline } from 'react-icons/io5'; // Nuevo import para el icono de Gaming
 import { translations } from '../../localization';
 
 const personalDataItems: PersonalData[] = [
@@ -13,11 +16,12 @@ const personalDataItems: PersonalData[] = [
   { label: translations.dataPhone, value: translations.valuePhone },
 ];
 
+// Array de intereses con los iconos corregidos
 const interestsItems: Interest[] = [
-  { name: translations.interestCoding, icon: FiCode },
-  { name: translations.interestMusic, icon: FiMusic },
-  { name: translations.interestTravel, icon: FiCoffee }, // Using FiCoffee as a placeholder
-  { name: translations.interestReading, icon: FiBookOpen },
+  { name: translations.interestCoding, icon: FiCode }, // Correcto: Programar
+  { name: translations.interestMusic, icon: FiPenTool }, // Corregido: Diseño
+  { name: translations.interestTravel, icon: IoGameControllerOutline }, // Corregido: Gaming
+  { name: translations.interestReading, icon: FiCpu }, // Corregido: Ciencia y Tecnología
 ];
 
 export const About: React.FC = () => {

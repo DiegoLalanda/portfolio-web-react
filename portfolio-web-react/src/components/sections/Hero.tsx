@@ -1,16 +1,14 @@
-
 import React from 'react';
 import { useLanguage } from '../../hooks/useLanguage';
 import { IconLink } from '../common/IconLink';
 import type { SocialLink } from '../../types';
-import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
 const socialLinks: SocialLink[] = [
-  { name: 'GitHub', url: 'https://github.com/yourusername', icon: FaGithub },
-  { name: 'LinkedIn', url: 'https://linkedin.com/in/yourusername', icon: FaLinkedin },
-  { name: 'Twitter', url: 'https://twitter.com/yourusername', icon: FaTwitter },
-  { name: 'Instagram', url: 'https://instagram.com/yourusername', icon: FaInstagram },
+  { name: 'GitHub', url: 'https://github.com/DiegoLalanda', icon: FaGithub },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/diego-lalanda-9576b21b8', icon: FaLinkedin },
+  { name: 'Instagram', url: 'https://www.instagram.com/diegol_4526/', icon: FaInstagram },
 ];
 
 export const Hero: React.FC = () => {
@@ -26,13 +24,11 @@ export const Hero: React.FC = () => {
       ref={ref}
       className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-100 via-slate-50 to-blue-100 dark:from-slate-800 dark:via-slate-900 dark:to-blue-900 py-20 pt-28 md:pt-20 relative overflow-hidden"
     >
-      <div className="absolute inset-0 opacity-10 dark:opacity-5">
-        {/* Decorative background pattern or image can go here */}
-      </div>
-      <div className="container mx-auto px-4 md:px-6 text-center z-10">
+      {/* CAMBIO 1: Añadir 'relative' y 'z-10' a este contenedor principal */}
+      <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
         <div className={`mx-auto mb-8 ${animationClass('delay-100')}`}>
           <img
-            src="https://picsum.photos/seed/profile/200/200"
+            src="src/assets/foto-perfil-diego.svg"
             alt={t('heroName')}
             className="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover mx-auto shadow-2xl border-4 border-white dark:border-slate-700 transform group-hover:scale-105 transition-transform duration-500 animate-subtle-bob"
           />
@@ -59,19 +55,20 @@ export const Hero: React.FC = () => {
             ))}
           </div>
         </div>
-        {/* CAMBIO 2: Añadir el shape divider en la parte inferior */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden rotate-180">
-          <svg
-            data-name="Layer 1"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1200 120"
-            preserveAspectRatio="none"
-            className="relative block w-[calc(100%+1.3px)] h-[150px] 
-                     fill-white dark:fill-slate-900" // <-- ¡Aquí está la magia del modo claro/oscuro!
-          >
-            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
-          </svg>
-        </div>
+      </div>
+      
+      {/* CAMBIO 2: Añadir 'z-0' a este div para que quede por detrás del contenido */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden rotate-180 z-0">
+        <svg
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+          className="relative block w-[calc(100%+1.3px)] h-[150px] 
+                     fill-slate-50 dark:fill-slate-900"
+        >
+          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+        </svg>
       </div>
     </section>
   );

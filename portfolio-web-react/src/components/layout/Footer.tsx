@@ -1,14 +1,14 @@
 
 import React from 'react';
 import { useLanguage } from '../../hooks/useLanguage';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { IconLink } from '../common/IconLink';
 import type { SocialLink } from '../../types';
 
 const footerSocialLinks: SocialLink[] = [
-  { name: 'GitHub', url: 'https://github.com/yourusername', icon: FaGithub },
-  { name: 'LinkedIn', url: 'https://linkedin.com/in/yourusername', icon: FaLinkedin },
-  { name: 'Twitter', url: 'https://twitter.com/yourusername', icon: FaTwitter },
+  { name: 'GitHub', url: 'https://github.com/DiegoLalanda', icon: FaGithub },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/diego-lalanda-9576b21b8', icon: FaLinkedin },
+  { name: 'Instagram', url: 'https://www.instagram.com/diegol_4526', icon: FaInstagram },
 ];
 
 export const Footer: React.FC = () => {

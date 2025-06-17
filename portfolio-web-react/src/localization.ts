@@ -30,8 +30,8 @@ export interface AppStrings {
   dataPhone: LocalizedString;
   valueAge: LocalizedString;
   valueLocation: LocalizedString;
-  valueEmail: string; // email is usually not translated
-  valuePhone: string; // phone is usually not translated
+  valueEmail: string;
+  valuePhone: string;
   interestCoding: LocalizedString;
   interestMusic: LocalizedString;
   interestTravel: LocalizedString;
@@ -41,22 +41,50 @@ export interface AppStrings {
   resumeTitle: LocalizedString;
   educationTitle: LocalizedString;
   experienceTitle: LocalizedString;
-  
-  // Example Education Items
+  gpaTitle: LocalizedString; 
+  highlightedCoursesTitle: LocalizedString; 
+  viewCertificate: LocalizedString; 
+  seeMore: LocalizedString; 
+  seeLess: LocalizedString; 
+
+  // Education Items
   edu1Title: LocalizedString;
   edu1Institution: LocalizedString;
   edu1Description: LocalizedString;
   edu2Title: LocalizedString;
   edu2Institution: LocalizedString;
   edu2Description: LocalizedString;
+  edu3Title: LocalizedString;
+  edu3Institution: LocalizedString;
+  edu3Description: LocalizedString;
 
-  // Example Experience Items
+  // Claves para nombres de materias y cursos
+  courseWebDev: LocalizedString;
+  courseArch: LocalizedString;
+  courseDB: LocalizedString;
+  courseProg3: LocalizedString;
+  courseElecMag: LocalizedString;
+  courseQuantum: LocalizedString;
+  courseMath2: LocalizedString;
+  courseAstrophysics: LocalizedString;
+  courseFullStackAP: LocalizedString;
+  courseOdoo: LocalizedString;
+  courseDeploy: LocalizedString;
+  courseDocker: LocalizedString;
+
+  // Experience Items (NUEVOS)
   exp1Title: LocalizedString;
   exp1Institution: LocalizedString;
   exp1Description: LocalizedString;
   exp2Title: LocalizedString;
   exp2Institution: LocalizedString;
   exp2Description: LocalizedString;
+  exp3Title: LocalizedString;
+  exp3Institution: LocalizedString;
+  exp3Description: LocalizedString;
+  exp4Title: LocalizedString;
+  exp4Institution: LocalizedString;
+  exp4Description: LocalizedString;
 
   // Skills
   skillsTitle: LocalizedString;
@@ -91,31 +119,31 @@ export const translations: AppStrings = {
   // Header
   navHome: { en: 'Home', es: 'Inicio' },
   navAbout: { en: 'About', es: 'Acerca de' },
-  navResume: { en: 'Resume', es: 'Curriculum' },
-  navSkills: { en: 'Skills', es: 'Skills' },
+  navResume: { en: 'Resume', es: 'Resume' },
+  navSkills: { en: 'Skills', es: 'Habilidades' },
   navProjects: { en: 'Projects', es: 'Proyectos' },
   navContact: { en: 'Contact', es: 'Contacto' },
   logoText: { en: 'Diego Lalanda', es: 'Diego Lalanda' },
 
   // Hero
-  heroGreeting: { en: 'Hello, I am', es: '¡Hola, soy' },
+  heroGreeting: { en: 'Hello, I am', es: '¡Hola! soy' },
   heroName: { en: 'Diego Lalanda', es: 'Diego Lalanda' },
-  heroTitle: { en: 'Junior Full-Stack Web Developer', es: 'Programador Web Full-Stack Junior' },
-  heroDescription: { 
-    en: 'I combine my experience in education with my skills in web development. I work with students of different levels and ages, which has given me a unique perspective on their needs.', 
-    es: 'Combino mi experiencia en educación con mis habilidades en desarrollo web. Trabajo con estudiantes de diferentes niveles y edades, lo que me ha dado una perspectiva única sobre sus necesidades.' 
+  heroTitle: { en: 'Full-Stack Web Developer', es: 'Desarrollador Web Full-Stack' },
+  heroDescription: {
+    en: 'I build complete, intuitive, and high-performance web applications, with a strong focus on UI/UX design and scalable backend architecture.',
+    es: 'Construyo aplicaciones web completas, intuitivas y de alto rendimiento, con un fuerte enfoque en el diseño UI/UX y la arquitectura backend escalable.'
   },
   heroSocials: { en: 'Find me on', es: 'Encuéntrame en' },
 
   // About
-  aboutTitle: { en: 'About Me', es: 'A Cerca De' },
-  aboutDescription1: { 
-    en: 'Hello! My name is Diego Lalanda. I am a High School Physics Teacher and a Full Stack Developer in training. I am passionate about combining my experience in education with my web development skills.', 
-    es: '¡Hola! Mi nombre es Diego Lalanda. Soy Profesor de Educación Secundaria en Física y Desarrollador Full Stack en formación. Me apasiona combinar mi experiencia en educación con mis habilidades en desarrollo web.' 
+  aboutTitle: { en: 'About Me', es: 'Acerca De Mí' },
+  aboutDescription1: {
+    en: 'Hello! I\'m Diego, a Full Stack Developer passionate about turning ideas into functional and aesthetically pleasing digital solutions. My main strength is front-end design, using tools like Figma and technologies like React and Angular to create engaging user experiences.',
+    es: '¡Hola! Soy Diego, un Desarrollador Full Stack apasionado por transformar ideas en soluciones digitales funcionales y estéticamente agradables. Mi principal fortaleza es el diseño front-end, utilizando herramientas como Figma y tecnologías como React y Angular para crear experiencias de usuario atractivas.'
   },
-  aboutDescription2: { 
-    en: 'Currently, I am studying for a University Technician degree in Web Development, and my portfolio showcases my skills in Java, Typescript, HTML, and CSS. My goal is to create intuitive, efficient, and attractive web applications. I am constantly learning and looking for new technologies to improve. Thank you for visiting my portfolio, I hope to work with you soon!', 
-    es: 'Actualmente, me estoy formando como Técnico Universitario en Desarrollo Web, y mi portfolio muestra mis habilidades en Java, Typescript, HTML y CSS. Mi objetivo es crear aplicaciones web intuitivas, eficientes y atractivas. Estoy constantemente aprendiendo y buscando nuevas tecnologías para mejorar. Gracias por visitar mi portfolio, ¡espero trabajar contigo pronto!'
+  aboutDescription2: {
+    en: 'I also have strong skills in backend development with Node.js and NestJS, database design (MySQL, PostgreSQL), and software engineering principles like UML and agile methodologies. I am a proactive, detail-oriented professional, currently advancing my studies in the University Technician program in Web Development at UNER.',
+    es: 'También controlo con solidez el desarrollo backend con Node.js y NestJS, el diseño de bases de datos (MySQL, PostgreSQL) y los principios de ingeniería de software como UML y metodologías ágiles. Soy un profesional proactivo y detallista, actualmente avanzando en mis estudios en la Tecnicatura Universitaria en Desarrollo Web en UNER.'
   },
   personalDataTitle: { en: 'Personal Details', es: 'Datos Personales' },
   interestsTitle: { en: 'Interests', es: 'Intereses' },
@@ -125,37 +153,86 @@ export const translations: AppStrings = {
   dataEmail: { en: 'Email', es: 'Email' },
   dataPhone: { en: 'Phone', es: 'Teléfono' },
   valueAge: { en: '11/29/1997', es: '29/11/1997' },
-  valueLocation: { en: 'San Luis 17, Concordia, E.R, Argentina.', es: 'San Luis 17, Concordia, E.R, Argentina.' },
-  valueEmail: 'guaio_2014@hotmail.com',
+  valueLocation: { en: 'Concordia, Entre Ríos, Argentina.', es: 'Concordia, Entre Ríos, Argentina.' },
+  valueEmail: 'lala.dev.tech@hotmail.com',
   valuePhone: '+54 345 6023111',
-  interestCoding: { en: 'Games', es: 'Juegos' },
-  interestMusic: { en: 'Music', es: 'Música' },
-  interestTravel: { en: 'Football', es: 'Fútbol' },
-  interestReading: { en: 'Science', es: 'Ciencia' },
+  interestCoding: { en: 'Coding', es: 'Programar' },
+  interestMusic: { en: 'Design', es: 'Diseño' },
+  interestTravel: { en: 'Gaming', es: 'Gaming' },
+  interestReading: { en: 'Cience & Technology', es: 'Ciencia y Tecnología' },
 
   // Resume
   resumeTitle: { en: 'Resume', es: 'Curriculum' },
   educationTitle: { en: 'Education', es: 'Educación' },
   experienceTitle: { en: 'Experience', es: 'Experiencia' },
-  
+  gpaTitle: { en: 'Final GPA', es: 'Promedio Final' },
+  highlightedCoursesTitle: { en: 'Highlighted Courses', es: 'Materias Destacadas' }, 
+  seeMore: { en: 'See details', es: 'Ver detalles' },
+  seeLess: { en: 'Hide details', es: 'Ocultar detalles' },
+  viewCertificate: { en: 'View Certificate', es: 'Ver Título' },
+
   // Education Items
-  edu1Title: { en: 'Bachelor in Natural Sciences', es: 'Bachiller en Ciencias Naturales' },
-  edu1Institution: { en: 'Escuela N°16 "Prof. Gerardo Victorín"', es: 'Escuela N°16 "Prof. Gerardo Victorín"' },
-  edu1Description: { en: 'The high school bachelor\'s degree in natural sciences certifies and recognizes the completion of a study program in which I have developed fundamental skills and knowledge in the field of natural sciences.', es: 'El título de bachiller en ciencias naturales de la escuela secundaria, certifica y reconoce la finalización de un programa de estudios en el cual he desarrollado habilidades y conocimientos fundamentales en el ámbito de las ciencias naturales.' },
+  edu1Title: { en: 'University Technician in Web Development', es: 'Tecnicatura Universitaria en Desarrollo Web' },
+  edu1Institution: { en: 'UNER - Universidad Nacional de Entre Ríos', es: 'UNER - Universidad Nacional de Entre Ríos' },
+  edu1Description: {
+    en: 'Ongoing studies covering the full software development lifecycle. The curriculum includes Software Engineering, Databases, Web Application Development, and advanced programming concepts.',
+    es: 'Formación en curso que abarca el ciclo completo de desarrollo de software. El plan de estudios incluye Ingeniería de Software, Bases de Datos, Desarrollo de Aplicaciones Web y conceptos de programación avanzada.'
+  },
   edu2Title: { en: 'High School Physics Teacher', es: 'Profesorado de Educación Secundaria en Física' },
   edu2Institution: { en: 'ISDICA Concordia', es: 'ISDICA Concordia' },
-  edu2Description: { en: 'This degree represents a solid training in Physics and Pedagogy that allows me to contribute to the education of future generations and the development of science and technology in the community. I was awarded the best average grade of 9.35.', es: 'Este título representa una formación sólida en Física y Pedagogía que me permite contribuir a la educación de las futuras generaciones y al desarrollo de la ciencia y la tecnología en la comunidad. Fui galardonado con el mejor promedio 9,35.' },
+  edu2Description: {
+    en:  "Beyond strong analytical thinking, this degree's training in pedagogy provided crucial soft skills. I gained practical experience in project planning and group management, enabling me to effectively guide collaborative development projects.",
+    es: 'Además del pensamiento analítico, la formación en pedagogía me aportó habilidades blandas cruciales. Adquirí experiencia práctica en planificación y gestión de grupos, lo que me permite guiar eficazmente proyectos de desarrollo colaborativos.'
+  },
+  edu3Title: { en: 'Professional Courses & Certifications', es: 'Cursos y Certificaciones Profesionales' },
+  edu3Institution: { en: 'Online Platforms & Self-Taught', es: 'Plataformas Online y Formación Autodidacta' },
+  edu3Description: {
+      en: 'Specialized training focused on strengthening my full-stack profile. The Full Stack course solidified my core web development foundation. With Odoo, I gained skills in ERP customization and Python. The deployment and Docker courses equipped me to manage the entire application lifecycle, from containerization to production deployment, ensuring scalability and efficiency.',
+      es: 'Formación especializada enfocada en fortalecer mi perfil full-stack. El curso de Full Stack consolidó mis bases en desarrollo web. Con Odoo, adquirí habilidades en la personalización de ERP y desarrollo en Python. Los cursos de deploy y Docker me han capacitado para gestionar el ciclo de vida completo de las aplicaciones, desde la contenerización hasta el despliegue en producción, asegurando escalabilidad y eficiencia.'
+  },
   
-  // Experience Items
-  exp1Title: { en: 'Administrative / Customer Service', es: 'Administrativo/ Atención al Público' },
-  exp1Institution: { en: 'Asociación Atlética “Los Galgos”', es: 'Asociación Atlética “Los Galgos”' },
-  exp1Description: { en: 'As an administrator, I have been responsible for recording and controlling the company\'s sales, and coordinating groups to meet objectives and solve problems. In customer service, I have worked in direct sales and ensured customer satisfaction.', es: 'Como administrativo, he sido responsable de registrar y controlar las ventas de la empresa, y coordinar grupos para cumplir objetivos y resolver problemas. En atención al público, he trabajado en ventas directas y asegurado la satisfacción del cliente.' },
-  exp2Title: { en: 'Full Stack Developer', es: 'Full Stack Developer' },
-  exp2Institution: { en: 'Freelancer', es: 'Freelancer' },
-  exp2Description: { en: 'As a full-stack web developer, I have acquired skills in multiple programming languages and technologies to create complete and functional web applications. One of my most important projects has been the development of my own personal web portfolio.', es: 'Como desarrollador web fullstack, he adquirido habilidades en múltiples lenguajes de programación y tecnologías para crear aplicaciones web completas y funcionales. Uno de mis proyectos más importantes ha sido el desarrollo de mi propio portfolio web personal.' },
+  // Nombres de materias y cursos
+  courseWebDev: { en: 'Web Development Intro', es: 'Introducción al Desarrollo Web' },
+  courseArch: { en: 'Computer Architecture', es: 'Arquitectura de Computadoras' },
+  courseDB: { en: 'Databases', es: 'Bases de Datos' },
+  courseProg3: { en: 'Programming III', es: 'Programación III' },
+  courseElecMag: { en: 'Electrical & Magnetic Phenomena', es: 'Fenómenos Eléctricos y Magnéticos' },
+  courseQuantum: { en: 'Quantum Physics & Relativity', es: 'Física Cuántica y Relatividad' },
+  courseMath2: { en: 'Mathematics II', es: 'Matemática II' },
+  courseAstrophysics: { en: 'Astrophysics', es: 'Astrofísica' },
+  courseFullStackAP: { en: 'Full Stack Web Developer (Argentina Programa)', es: 'Desarrollador Web Full Stack (Argentina Programa)' },
+  courseOdoo: { en: 'Odoo Consultant & Developer', es: 'Consultor y Desarrollador Odoo' },
+  courseDeploy: { en: 'Server Deployment Professional', es: 'Profesional de Deploy en Servidores' },
+  courseDocker: { en: 'Docker Professional', es: 'Profesional de Docker' },
+
+  // --- EXPERIENCE ITEMS (ACTUALIZADOS) ---
+  exp1Title: { en: 'High School Physics Teacher', es: 'Profesor de Física' },
+  exp1Institution: { en: 'General Council of Education', es: 'Consejo General de Educación' },
+  exp1Description: { 
+    en: 'As a high school teacher, I apply innovative teaching strategies based on a solid foundation in pedagogy. My focus is on providing a dynamic and participatory education, motivating students to explore and understand science practically in a stimulating and collaborative learning environment.',
+    es: 'Como profesor de nivel secundario, aplico estrategias didácticas innovadoras en base a una sólida formación en pedagogía. Mi enfoque se centra en brindar una educación dinámica y participativa, motivando a los estudiantes a explorar y comprender la ciencia de manera práctica en un ambiente de aprendizaje estimulante y colaborativo.'
+  },
+  exp2Title: { en: 'Full Stack Web Developer', es: 'Desarrollador Web Full Stack' },
+  exp2Institution: { en: 'Freelance', es: 'Freelance' },
+  exp2Description: { 
+    en: "As a freelance developer, I've delivered custom web solutions for diverse business needs. Key projects include developing e-commerce platforms with WordPress and WooCommerce, building an interactive online quoting tool with React that integrates external APIs, and creating a full-stack survey builder (Angular, NestJS, PostgreSQL), showcasing my ability to manage the entire development lifecycle.",
+    es: 'Como desarrollador freelance, he entregado soluciones web a medida para diversas necesidades. Mis proyectos incluyen el desarrollo de plataformas e-commerce con WordPress y WooCommerce, la creación de un cotizador online interactivo con React y la integración de APIs externas, y la construcción de una aplicación full-stack para crear encuestas (Angular, NestJS, PostgreSQL), demostrando mi capacidad para manejar el ciclo de desarrollo completo.'
+  },
+  exp3Title: { en: 'Guide & Project Coordinator', es: 'Guía y Coordinador de Proyectos' },
+  exp3Institution: { en: "'Costa Ciencia' Interactive Museum", es: "Museo Interactivo 'Costa Ciencia'" },
+  exp3Description: { 
+    en: 'As a guide, I provided unique educational experiences. As a coordinator, I led projects and teams for exhibitions, managed social media, and ensured effective communication, strengthening my teamwork and goal-oriented skills.',
+    es: 'Como guía, brindé experiencias educativas únicas a los visitantes. Como coordinador, lideré proyectos y equipos para exposiciones, manejé redes sociales y aseguré una comunicación efectiva, desarrollando mis habilidades para trabajar en equipo y lograr objetivos.'
+  },
+  exp4Title: { en: 'Administrative & Customer Service', es: 'Administrativo y Atención al Público' },
+  exp4Institution: { en: "'Los Galgos' Athletic Association", es: "Asociación Atlética 'Los Galgos'" },
+  exp4Description: { 
+    en: 'I was responsible for recording and controlling sales, coordinating groups to meet objectives, and resolving issues. In customer service, I handled direct sales and ensured client satisfaction, developing skills in data management, team coordination, and customer care.',
+    es: 'Fui responsable de registrar y controlar ventas, coordinar grupos para cumplir objetivos y resolver problemas. En atención al público, trabajé en ventas directas y aseguré la satisfacción del cliente, desarrollando habilidades en manejo de información, coordinación de equipos y atención al cliente.'
+  },
 
   // Skills
-  skillsTitle: { en: 'Skills', es: 'Skills' },
+  skillsTitle: { en: 'Skills', es: 'Habilidades' },
   hardSkills: { en: 'Technical Skills', es: 'Habilidades Técnicas' },
   softSkills: { en: 'Soft Skills', es: 'Habilidades Blandas' },
 
@@ -163,11 +240,11 @@ export const translations: AppStrings = {
   projectsTitle: { en: 'Projects', es: 'Proyectos' },
   viewProject: { en: 'View Project', es: 'Ver Proyecto' },
   viewRepo: { en: 'View Repository', es: 'Ver Repositorio' },
-  project1Title: { en: 'Web Portfolio', es: 'Portfolio Web' },
-  project1Desc: { en: 'One of my most significant projects has been the development of my own personal web portfolio. I used various web technologies to create an attractive and functional website that showcases my skills and achievements as a web developer.', es: 'Uno de mis proyectos más significativos ha sido el desarrollo de mi propio portfolio web personal. Utilicé diversas tecnologías web para crear un sitio web atractivo y funcional que muestra mis habilidades y logros como desarrollador web.' },
-  project2Title: { en: 'Task Management App', es: 'App de Gestión de Tareas' },
-  project2Desc: { en: 'A collaborative task management tool to help teams organize and track their work effectively.', es: 'Una herramienta colaborativa de gestión de tareas para ayudar a los equipos a organizar y seguir su trabajo de forma eficaz.' },
-  
+  project1Title: { en: 'Personal Web Portfolio', es: 'Portfolio Web Personal' },
+  project1Desc: { en: 'My personal portfolio, developed with Angular for the front-end and a Java Spring Boot backend. A project to showcase my skills and achievements as a web developer. Deployed on cloud servers.', es: 'Mi portfolio personal, desarrollado con Angular en el front-end y un backend en Java con Spring Boot. Un proyecto para mostrar mis habilidades y logros como desarrollador. Desplegado en servidores en la nube.' },
+  project2Title: { en: 'Hotel Website (React)', es: 'Sitio Web Hotelero (React)' },
+  project2Desc: { en: 'Dynamic front-end development for a hotel company using React.js. Features responsive design and consumption of an external Node.js API to display dynamic information.', es: 'Desarrollo de un front-end dinámico para una empresa hotelera utilizando React.js. Cuenta con diseño responsivo y consume una API externa de Node.js para mostrar información dinámica.' },
+
   // Contact
   contactTitle: { en: 'Contact', es: 'Contacto' },
   contactSubtitle: { en: 'Have a project in mind or just want to say hi? Feel free to reach out!', es: '¿Tienes un proyecto en mente o simplemente quieres saludar? ¡No dudes en contactarme!' },
@@ -180,9 +257,9 @@ export const translations: AppStrings = {
   mapDescription: { en: 'My approximate location for reference.', es: 'Mi ubicación aproximada como referencia.' },
 
   // Footer
-  footerText: { 
-    en: `© ${new Date().getFullYear()} Diego Lalanda. All rights reserved.`, 
-    es: `© ${new Date().getFullYear()} Diego Lalanda. Todos los derechos reservados.` 
+  footerText: {
+    en: `© ${new Date().getFullYear()} Diego Lalanda. All rights reserved.`,
+    es: `© ${new Date().getFullYear()} Diego Lalanda. Todos los derechos reservados.`
   },
 };
 

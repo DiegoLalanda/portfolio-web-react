@@ -1,4 +1,3 @@
-
 // En lugar de enums, usamos tipos de unión literal
 export type Language = 'en' | 'es';
 export type Theme = 'light' | 'dark';
@@ -41,13 +40,23 @@ export interface Interest {
   icon?: React.ElementType;
 }
 
+// Nuevo tipo para las materias
+export interface Course {
+  name: LocalizedString;
+  grade: number | string;
+}
+
 export interface TimelineItem {
   id: string;
   title: LocalizedString;
   institution: LocalizedString;
   logoUrl?: string;
-  years: string; // e.g., "2020 - 2024" or "2022 - Present"
+  years: string;
   description: LocalizedString;
+  gpa?: string; // Campo opcional para el promedio
+  courses?: Course[]; // Campo opcional para la lista de materias
+  certificateUrl?: string;
+  highlightedCoursesTitle?: LocalizedString; // <-- LÍNEA AÑADIDA
 }
 
 export interface SkillCategory {
