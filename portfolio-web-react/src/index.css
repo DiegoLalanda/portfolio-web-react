@@ -1,3 +1,21 @@
+/* src/index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Estilos globales adicionales */
+html {
+  scroll-behavior: smooth;
+}
+
+/* CORRECTO: Aplicar directamente la font-family. */
+/* Tailwind ya sabe qué es 'Inter' por la configuración. */
+body {
+  font-family: theme('fontFamily.sans');
+}
+
+/* CORRECTO: Definir la clase con su propiedad CSS. */
+/* Esto rompe la dependencia circular. */
+.font-display {
+  font-family: theme('fontFamily.display');
+}

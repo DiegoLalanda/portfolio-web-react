@@ -1,87 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- PASO 1: Cambiado el idioma principal a español -->
+<html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Diego Lalanda | Portfolio</title>
   
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Welcome to my personal portfolio. Discover my projects, skills, and experience.">
-  <meta name="keywords" content="portfolio, react, typescript, tailwindcss, frontend developer, web developer, projects, skills">
-  <meta name="author" content="[Your Name Here - Replace This]">
+  <!-- PASO 2: Título optimizado y descriptivo -->
+  <title>Diego Lalanda | Desarrollador Web Full-Stack</title>
 
-  <!-- Open Graph Meta Tags (for social sharing) -->
-  <meta property="og:title" content="My Awesome Portfolio">
-  <meta property="og:description" content="Check out my work, skills, and experience.">
+  <!-- === SEO Meta Tags === -->
+  <!-- PASO 3: Descripción atractiva y con palabras clave -->
+  <meta name="description" content="Portfolio de Diego Lalanda, Desarrollador Web Full-Stack especializado en React, Angular y Node.js. Descubre mis proyectos, habilidades y experiencia profesional.">
+  
+  <!-- PASO 4: Keywords más específicas. Google no le da mucha importancia, pero no hace daño. -->
+  <meta name="keywords"
+    content="Diego Lalanda, portfolio, desarrollador web, full-stack, freelance, react, angular, nodejs, typescript, argentina, entre rios, concordia">
+  <meta name="author" content="Diego Lalanda">
+  
+  <!-- PASO 5: URL Canónica (MUY IMPORTANTE) -->
+  <!-- Reemplaza esto con tu URL final cuando despliegues la web -->
+  <link rel="canonical" href="[https://www.diegolalanda.com]">
+
+  <!-- === Open Graph / Facebook Meta Tags === -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="[Your Website URL Here - Replace This]">
-  <meta property="og:image" content="https://picsum.photos/1200/630?grayscale&text=Portfolio+Preview">
-  <meta property="og:image:alt" content="A preview of my portfolio website">
+  <meta property="og:url" content="[https://www.diegolalanda.com]">
+  <meta property="og:title" content="Diego Lalanda | Desarrollador Web Full-Stack">
+  <meta property="og:description" content="Explora mi portfolio de proyectos y conoce mis habilidades en el desarrollo de aplicaciones web modernas.">
   
-  <!-- Twitter Card Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="My Awesome Portfolio">
-  <meta name="twitter:description" content="Check out my work, skills, and experience.">
-  <meta name="twitter:image" content="https://picsum.photos/1200/630?grayscale&text=Portfolio+Preview">
-  <!-- <meta name="twitter:site" content="@yourtwitterhandle"> -->
-  <!-- <meta name="twitter:creator" content="@yourtwitterhandle"> -->
+  <!-- PASO 6: Imagen personalizada para compartir (CRUCIAL) -->
+  <!-- Crea una imagen de 1200x630, ponla en la carpeta /public y enlaza a ella -->
+  <meta property="og:image" content="[https://www.diegolalanda.com/og-image.png]">
+  <meta property="og:image:alt" content="Una previsualización del portfolio de Diego Lalanda">
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class', // or 'media'
-      theme: {
-        extend: {
-          animation: {
-            'fade-in-up': 'fadeInUp 0.7s ease-out forwards',
-            'subtle-bob': 'subtleBob 3s ease-in-out infinite',
-          },
-          keyframes: {
-            fadeInUp: {
-              '0%': { opacity: '0', transform: 'translateY(20px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' },
-            },
-            subtleBob: {
-              '0%, 100%': { transform: 'translateY(0)' },
-              '50%': { transform: 'translateY(-8px)' },
-            }
-          },
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'], // Example: Using Inter font
-          },
-        }
-      }
-    }
-  </script>
+  <!-- === Twitter Card Meta Tags === -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="[https://www.diegolalanda.com]">
+  <meta name="twitter:title" content="Diego Lalanda | Desarrollador Web Full-Stack">
+  <meta name="twitter:description" content="Explora mi portfolio de proyectos y conoce mis habilidades en el desarrollo de aplicaciones web modernas.">
+  
+  <!-- Usa la misma imagen personalizada de 1200x630 -->
+  <meta name="twitter:image" content="[https://www.diegolalanda.com/og-image.png]">
+  <!-- Opcional: añade tu usuario de Twitter -->
+  <!-- <meta name="twitter:creator" content="@tuUsuarioDeTwitter"> -->
+
+  <!-- === PASO 7: Favicon === -->
+  <!-- Genera estos iconos (con un generador online) y ponlos en la carpeta /public -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+  <!-- === Fuentes y Scripts (sin cambios) === -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+    rel="stylesheet">
 
-  <style>
-    /* For smooth scrolling */
-    html {
-      scroll-behavior: smooth;
+  <script type="importmap">
+  {
+    "imports": {
+      "react": "https://esm.sh/react@^19.1.0",
+      "react/": "https://esm.sh/react@^19.1.0/",
+      "react-icons/": "https://esm.sh/react-icons@^5.5.0/",
+      "react-dom/": "https://esm.sh/react-dom@^19.1.0/"
     }
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-    .font-display {
-      font-family: 'Playfair Display', serif;
-    }
-  </style>
-<script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@^19.1.0",
-    "react/": "https://esm.sh/react@^19.1.0/",
-    "react-icons/": "https://esm.sh/react-icons@^5.5.0/",
-    "react-dom/": "https://esm.sh/react-dom@^19.1.0/"
   }
-}
-</script>
+  </script>
 </head>
+
 <body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 transition-colors duration-300">
   <div id="root"></div>
   <script type="module" src="src/main.tsx"></script>
 </body>
+
 </html>

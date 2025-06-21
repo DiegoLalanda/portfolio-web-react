@@ -65,7 +65,7 @@ export interface SkillCategory {
 }
 
 export interface Skill {
-  name: string;
+  name: LocalizedString;
   level?: number; // Optional: 1-5 or 1-100 for proficiency
   icon?: React.ElementType;
 }
