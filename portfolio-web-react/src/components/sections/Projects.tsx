@@ -1,12 +1,15 @@
-
 import React, { useState } from 'react';
 import { useLanguage } from '../../hooks/useLanguage';
 import { SectionWrapper } from '../common/SectionWrapper';
-import { AnimatedCard } from '../common/AnimatedCard';
 import type { Project as ProjectType } from '../../types';
-import { FaGithub, FaExternalLinkAlt, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { translations } from '../../localization';
+import { FaGithub, FaExternalLinkAlt, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
+// CAMBIO 1: Importamos FreeMode y eliminamos EffectCoverflow y Navigation por ahora.
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { A11y, FreeMode, Autoplay } from 'swiper/modules';
+
+// --- DATOS DE PROYECTOS (SIN CAMBIOS) ---
 const projectData: ProjectType[] = [
   {
     id: 'proj1',
@@ -31,124 +34,162 @@ const projectData: ProjectType[] = [
     ],
     technologies: ['Next.js', 'Firebase', 'Stripe', 'Material UI'],
     repoUrl: 'https://github.com/yourusername/project2',
-    // deployUrl: 'https://project2.example.com', // Optional
+  },
+  {
+    id: 'proj3',
+    title: { en: 'E-commerce "En un Toke"', es: 'E-commerce "En un Toke"' },
+    description: { en: 'Full e-commerce site with payment gateway integration, shipping logistics, and advanced ad tracking via Meta Pixel.', es: 'E-commerce completo con integración de pasarela de pagos, logística de envíos y seguimiento avanzado de publicidad con Píxel de Meta.' },
+    images: [
+      'https://picsum.photos/seed/proj3img1/600/400',
+      'https://picsum.photos/seed/proj3img2/600/400',
+    ],
+    technologies: ['WordPress', 'WooCommerce', 'Mercado Pago', 'PHP'],
+    deployUrl: 'https://project3.example.com',
   },
 ];
 
-const ProjectCarousel: React.FC<{ images: string[], title: string }> = ({ images, title }) => {
+
+// --- COMPONENTE ImageCarousel (ACTUALIZADO CON DOTS) ---
+const ImageCarousel: React.FC<{ images: string[], title: string }> = ({ images, title }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const prevSlide = () => {
+  // Detenemos la propagación para que el Swiper principal no se mueva
+  const handlePrevClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
     const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? images.length - 1 : currentIndex - 1;
-    setCurrentIndex(newIndex);
+    setCurrentIndex(isFirstSlide ? images.length - 1 : currentIndex - 1);
   };
 
-  const nextSlide = () => {
+  const handleNextClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
     const isLastSlide = currentIndex === images.length - 1;
-    const newIndex = isLastSlide ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
+    setCurrentIndex(isLastSlide ? 0 : currentIndex + 1);
+  };
+  
+  // Detenemos la propagación también en los dots
+  const handleDotClick = (e: React.MouseEvent, index: number) => {
+    e.stopPropagation();
+    setCurrentIndex(index);
   };
 
-  if (!images || images.length === 0) {
-    return <div className="aspect-video bg-slate-200 dark:bg-slate-700 rounded-md flex items-center justify-center text-slate-500">No Image</div>;
-  }
-  
+  if (!images || images.length === 0) return null;
+
   return (
-    <div className="relative group aspect-video">
+    <div className="relative group aspect-video overflow-hidden rounded-t-lg">
       <div 
         style={{ backgroundImage: `url(${images[currentIndex]})` }} 
-        className="w-full h-full rounded-md bg-center bg-cover duration-500 transition-all ease-in-out group-hover:scale-105"
+        className="w-full h-full bg-center bg-cover duration-500 transition-all"
         role="img"
         aria-label={`${title} - image ${currentIndex + 1} of ${images.length}`}
       ></div>
       {images.length > 1 && (
         <>
-          {/* Left Arrow */}
+          {/* Botones de Navegación (Flechas) */}
           <button 
-            onClick={prevSlide} 
+            onClick={handlePrevClick} 
             aria-label="Previous image"
-            className="hidden group-hover:block absolute top-[50%] -translate-y-[50%] left-2 text-2xl rounded-full p-2 bg-black/40 text-white cursor-pointer hover:bg-black/60 transition-colors"
+            className="opacity-0 group-hover:opacity-100 absolute top-1/2 -translate-y-1/2 left-2 p-2 bg-black/40 text-white rounded-full transition-opacity z-10"
           >
             <FaChevronLeft size={20} />
           </button>
-          {/* Right Arrow */}
           <button 
-            onClick={nextSlide}
+            onClick={handleNextClick}
             aria-label="Next image"
-            className="hidden group-hover:block absolute top-[50%] -translate-y-[50%] right-2 text-2xl rounded-full p-2 bg-black/40 text-white cursor-pointer hover:bg-black/60 transition-colors"
+            className="opacity-0 group-hover:opacity-100 absolute top-1/2 -translate-y-1/2 right-2 p-2 bg-black/40 text-white rounded-full transition-opacity z-10"
           >
             <FaChevronRight size={20} />
           </button>
-          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex space-x-1.5">
-            {images.map((_, idx) => (
+
+          {/* --- INICIO DEL CAMBIO: PUNTOS DE PAGINACIÓN --- */}
+          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
+            {images.map((_, index) => (
               <button
-                key={idx}
-                onClick={() => setCurrentIndex(idx)}
-                aria-label={`Go to image ${idx + 1}`}
-                className={`w-2 h-2 rounded-full transition-all ${currentIndex === idx ? 'bg-white scale-125' : 'bg-white/50'}`}
+                key={index}
+                onClick={(e) => handleDotClick(e, index)}
+                aria-label={`Go to image ${index + 1}`}
+                className={`
+                  w-2 h-2 rounded-full transition-all duration-300
+                  ${currentIndex === index ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/75'}
+                `}
               />
             ))}
           </div>
+          {/* --- FIN DEL CAMBIO --- */}
         </>
       )}
     </div>
   );
 };
 
+// --- COMPONENTE ProjectItem (CON EFECTO HOVER MEJORADO) ---
 const ProjectItem: React.FC<{ project: ProjectType }> = ({ project }) => {
   const { t, language } = useLanguage();
   return (
-    <AnimatedCard className="flex flex-col overflow-hidden">
-      <ProjectCarousel images={project.images} title={project.title[language]} />
-      <div className="p-5 flex flex-col flex-grow">
+    // CAMBIO 2: Añadimos un efecto de hover sutil para la interacción manual
+    <div className="bg-white dark:bg-slate-800 rounded-lg shadow-xl flex flex-col overflow-hidden h-full transition-transform duration-300 ">
+      <ImageCarousel images={project.images} title={project.title[language]} />
+      <div className="p-6 flex flex-col flex-grow">
         <h3 className="text-xl font-semibold mb-2 text-slate-800 dark:text-slate-100">{project.title[language]}</h3>
         <p className="text-sm text-slate-600 dark:text-slate-300 mb-4 flex-grow leading-relaxed">{project.description[language]}</p>
         <div className="mb-4">
-          <h4 className="text-xs font-semibold uppercase text-slate-500 dark:text-slate-400 mb-1">Technologies:</h4>
+          <h4 className="text-xs font-semibold uppercase text-slate-500 dark:text-slate-400 mb-2">Technologies:</h4>
           <div className="flex flex-wrap gap-2">
             {project.technologies.map(tech => (
-              <span key={tech} className="px-2 py-0.5 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-xs font-medium">
+              <span key={tech} className="px-2.5 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 rounded-full text-xs font-medium">
                 {tech}
               </span>
             ))}
           </div>
         </div>
-        <div className="mt-auto flex space-x-3 pt-3 border-t border-slate-200 dark:border-slate-700">
+        <div className="mt-auto flex space-x-4 pt-4 border-t border-slate-200 dark:border-slate-700">
           {project.deployUrl && (
-            <a
-              href={project.deployUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-500 font-medium transition-colors transform hover:scale-105"
-            >
+            <a href={project.deployUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-500 font-medium transition-colors">
               <FaExternalLinkAlt className="mr-1.5" /> {t('viewProject')}
             </a>
           )}
           {project.repoUrl && (
-            <a
-              href={project.repoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center text-sm text-slate-600 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 font-medium transition-colors transform hover:scale-105"
-            >
+            <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-sm text-slate-600 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 font-medium transition-colors">
               <FaGithub className="mr-1.5" /> {t('viewRepo')}
             </a>
           )}
         </div>
       </div>
-    </AnimatedCard>
+    </div>
   );
 };
 
+// --- COMPONENTE Projects (REESTRUCTURADO CON FREEMODE) ---
 export const Projects: React.FC = () => {
   const { t } = useLanguage();
+  // CAMBIO 3: Duplicamos la data para el bucle manual
+  const loopedProjectData = [...projectData, ...projectData];
+
   return (
     <SectionWrapper id="projects" title={t('projectsTitle')}>
-      <div className="grid md:grid-cols-2 gap-8 md:gap-10">
-        {projectData.map((project) => (
-          <ProjectItem key={project.id} project={project} />
-        ))}
+      {/* Usamos una máscara para el efecto de fade en los bordes */}
+      <div className="w-full" style={{ maskImage: 'linear-gradient(to right, transparent, black 2%, black 98%, transparent)' }}>
+        <Swiper
+          modules={[FreeMode, A11y, Autoplay]}
+          loop={true} // El loop ahora es para el autoplay
+          slidesPerView={'auto'}
+          spaceBetween={30} // Espacio entre slides
+          freeMode={true} // Permite el deslizamiento libre
+          autoplay={{
+            delay: 1, // Delay casi nulo
+            disableOnInteraction: false, // El autoplay no se detiene
+          }}
+          speed={5000} // Velocidad de la transición (más alto = más lento)
+          className="!py-4"
+        >
+          {loopedProjectData.map((project, index) => (
+            <SwiperSlide 
+              key={`${project.id}-${index}`} 
+              className="!w-[80%] sm:!w-[60%] md:!w-[50%] lg:!w-[42%]"
+            >
+              <ProjectItem project={project} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </SectionWrapper>
   );

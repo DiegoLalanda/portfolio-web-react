@@ -4,34 +4,47 @@ import { SectionWrapper } from '../common/SectionWrapper';
 import type { SkillCategory, Skill, Language } from '../../types';
 import { translations } from '../../localization';
 
-// --- ICONOS --- (Sin cambios)
-import { FaReact, FaJsSquare, FaHtml5, FaCss3Alt, FaAngular, FaNodeJs, FaGitAlt, FaPython, FaDocker, FaDatabase, FaFigma, FaWordpress, FaUsers, FaLightbulb, FaComments, FaProjectDiagram, FaChalkboardTeacher, FaSearch, FaHandshake } from 'react-icons/fa';
-import { SiTypescript, SiTailwindcss, SiNestjs, SiPostgresql } from 'react-icons/si';
+// --- ICONOS ---
+// Core
+import { FaReact, FaJsSquare, FaHtml5, FaCss3Alt, FaAngular, FaNodeJs, FaGitAlt, FaPython, FaDocker, FaFigma, FaWordpress } from 'react-icons/fa';
+import { SiTypescript, SiTailwindcss, SiNestjs, SiPostgresql, SiMysql, SiAdobephotoshop } from 'react-icons/si'; // <-- Iconos añadidos
 import { GoGear } from 'react-icons/go';
+// Soft Skills
+import { FaUsers, FaLightbulb, FaComments, FaProjectDiagram, FaChalkboardTeacher, FaSearch, FaHandshake } from 'react-icons/fa';
 import { BsRocketTakeoff } from "react-icons/bs";
 
-// --- DATOS DE HABILIDADES --- (Sin cambios)
+// --- DATOS DE HABILIDADES (ACTUALIZADOS Y REORGANIZADOS) ---
 const skillData: SkillCategory[] = [
     {
       name: translations.hardSkills,
       skills: [
-        { name: { en: 'React', es: 'React' }, icon: FaReact, level: 85 },
-        { name: { en: 'Angular', es: 'Angular' }, icon: FaAngular, level: 70 },
-        { name: { en: 'JavaScript (ES6+)', es: 'JavaScript (ES6+)' }, icon: FaJsSquare, level: 85 },
-        { name: { en: 'TypeScript', es: 'TypeScript' }, icon: SiTypescript, level: 80 },
-        { name: { en: 'HTML5', es: 'HTML5' }, icon: FaHtml5, level: 95 },
-        { name: { en: 'CSS3', es: 'CSS3' }, icon: FaCss3Alt, level: 90 },
-        { name: { en: 'Tailwind CSS', es: 'Tailwind CSS' }, icon: SiTailwindcss, level: 90 },
-        { name: { en: 'Node.js', es: 'Node.js' }, icon: FaNodeJs, level: 75 },
-        { name: { en: 'NestJS', es: 'NestJS' }, icon: SiNestjs, level: 70 },
-        { name: { en: 'Python', es: 'Python' }, icon: FaPython, level: 65 },
-        { name: { en: 'SQL (PostgreSQL)', es: 'SQL (PostgreSQL)' }, icon: SiPostgresql, level: 70 },
-        { name: { en: 'NoSQL Databases', es: 'Bases de Datos NoSQL' }, icon: FaDatabase, level: 60 },
-        { name: { en: 'REST API Design', es: 'Diseño de APIs REST' }, icon: GoGear, level: 80 },
-        { name: { en: 'Git & GitHub', es: 'Git & GitHub' }, icon: FaGitAlt, level: 85 },
-        { name: { en: 'Docker', es: 'Docker' }, icon: FaDocker, level: 65 },
+        // --- UI/UX & Design ---
         { name: { en: 'Figma', es: 'Figma' }, icon: FaFigma, level: 75 },
-        { name: { en: 'WordPress/WooCommerce', es: 'WordPress/WooCommerce' }, icon: FaWordpress, level: 70 },
+        { name: { en: 'Adobe Photoshop', es: 'Adobe Photoshop' }, icon: SiAdobephotoshop, level: 75 }, // <-- NUEVO
+
+        // --- Frontend Development ---
+        { name: { en: 'React', es: 'React' }, icon: FaReact, level: 70 },
+        { name: { en: 'Angular', es: 'Angular' }, icon: FaAngular, level: 60 },
+        { name: { en: 'JavaScript (ES6+)', es: 'JavaScript (ES6+)' }, icon: FaJsSquare, level: 70 },
+        { name: { en: 'TypeScript', es: 'TypeScript' }, icon: SiTypescript, level: 60 },
+        { name: { en: 'HTML5', es: 'HTML5' }, icon: FaHtml5, level: 80 },
+        { name: { en: 'CSS3', es: 'CSS3' }, icon: FaCss3Alt, level: 70 },
+        { name: { en: 'Tailwind CSS', es: 'Tailwind CSS' }, icon: SiTailwindcss, level: 75 },
+
+        // --- Backend Development ---
+        { name: { en: 'Node.js', es: 'Node.js' }, icon: FaNodeJs, level: 65 },
+        { name: { en: 'NestJS', es: 'NestJS' }, icon: SiNestjs, level: 50 },
+        { name: { en: 'Python', es: 'Python' }, icon: FaPython, level: 50 },
+        { name: { en: 'REST API Design', es: 'Diseño de APIs REST' }, icon: GoGear, level: 80 },
+        
+        // --- Databases ---
+        { name: { en: 'SQL (PostgreSQL)', es: 'SQL (PostgreSQL)' }, icon: SiPostgresql, level: 60 },
+        { name: { en: 'SQL (MySQL)', es: 'SQL (MySQL)' }, icon: SiMysql, level: 70 }, // <-- NUEVO
+
+        // --- DevOps & Tools ---
+        { name: { en: 'Git & GitHub', es: 'Git & GitHub' }, icon: FaGitAlt, level: 80 },
+        { name: { en: 'Docker', es: 'Docker' }, icon: FaDocker, level: 40 },
+        { name: { en: 'WordPress/WooCommerce', es: 'WordPress/WooCommerce' }, icon: FaWordpress, level: 60 },
       ],
     },
     {
@@ -49,7 +62,7 @@ const skillData: SkillCategory[] = [
     },
 ];
 
-// --- COMPONENTE SkillItem (Zoom más grande) ---
+// --- COMPONENTE SkillItem (Sin cambios) ---
 const SkillItem: React.FC<{ skill: Skill; language: Language }> = ({ skill, language }) => {
   const Icon = skill.icon;
   
@@ -79,13 +92,11 @@ const SkillItem: React.FC<{ skill: Skill; language: Language }> = ({ skill, lang
   );
 };
 
-// --- COMPONENTE SkillsCarousel (Con padding para evitar recorte) ---
+// --- COMPONENTE SkillsCarousel (Sin cambios) ---
 const SkillsCarousel: React.FC<{ skills: Skill[]; language: Language; reverse?: boolean }> = ({ skills, language, reverse = false }) => {
   const doubledSkills = [...skills, ...skills];
   
   return (
-    // CAMBIO 1: AÑADIMOS UN PADDING VERTICAL (py-10)
-    // Esto crea el "espacio para respirar" para que las tarjetas puedan crecer con el zoom sin ser recortadas.
     <div className="group w-full overflow-hidden relative py-10" style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}>
       <div className={`flex items-center w-max ${reverse ? 'animate-scroll-reverse' : 'animate-scroll'} group-hover:[animation-play-state:paused]`}>
         {doubledSkills.map((skill, index) => (
@@ -106,7 +117,7 @@ export const Skills: React.FC = () => {
 
   return (
     <SectionWrapper id="skills" title={t('skillsTitle')}>
-      <div className="space-y-8"> {/* Reducimos un poco el espacio si es necesario */}
+      <div className="space-y-8">
         {skillData.map((category, index) => (
           <div key={category.name[language]} className="flex flex-col items-center">
             <h3 className="font-display text-2xl md:text-3xl font-semibold mb-2 text-slate-700 dark:text-slate-200">

@@ -41,11 +41,11 @@ export interface AppStrings {
   resumeTitle: LocalizedString;
   educationTitle: LocalizedString;
   experienceTitle: LocalizedString;
-  gpaTitle: LocalizedString; 
-  highlightedCoursesTitle: LocalizedString; 
-  viewCertificate: LocalizedString; 
-  seeMore: LocalizedString; 
-  seeLess: LocalizedString; 
+  gpaTitle: LocalizedString;
+  highlightedCoursesTitle: LocalizedString;
+  viewCertificate: LocalizedString;
+  seeMore: LocalizedString;
+  seeLess: LocalizedString;
 
   // Education Items
   edu1Title: LocalizedString;
@@ -166,7 +166,7 @@ export const translations: AppStrings = {
   educationTitle: { en: 'Education', es: 'Educación' },
   experienceTitle: { en: 'Experience', es: 'Experiencia' },
   gpaTitle: { en: 'Final GPA', es: 'Promedio Final' },
-  highlightedCoursesTitle: { en: 'Highlighted Courses', es: 'Materias Destacadas' }, 
+  highlightedCoursesTitle: { en: 'Highlighted Courses', es: 'Materias Destacadas' },
   seeMore: { en: 'See details', es: 'Ver detalles' },
   seeLess: { en: 'Hide details', es: 'Ocultar detalles' },
   viewCertificate: { en: 'View Certificate', es: 'Ver Título' },
@@ -181,16 +181,16 @@ export const translations: AppStrings = {
   edu2Title: { en: 'High School Physics Teacher', es: 'Profesorado de Educación Secundaria en Física' },
   edu2Institution: { en: 'ISDICA Concordia', es: 'ISDICA Concordia' },
   edu2Description: {
-    en:  "Beyond strong analytical thinking, this degree's training in pedagogy provided crucial soft skills. I gained practical experience in project planning and group management, enabling me to effectively guide collaborative development projects.",
+    en: "Beyond strong analytical thinking, this degree's training in pedagogy provided crucial soft skills. I gained practical experience in project planning and group management, enabling me to effectively guide collaborative development projects.",
     es: 'Además del pensamiento analítico, la formación en pedagogía me aportó habilidades blandas cruciales. Adquirí experiencia práctica en planificación y gestión de grupos, lo que me permite guiar eficazmente proyectos de desarrollo colaborativos.'
   },
   edu3Title: { en: 'Professional Courses & Certifications', es: 'Cursos y Certificaciones Profesionales' },
   edu3Institution: { en: 'Online Platforms & Self-Taught', es: 'Plataformas Online y Formación Autodidacta' },
   edu3Description: {
-      en: 'Specialized training focused on strengthening my full-stack profile. The Full Stack course solidified my core web development foundation. With Odoo, I gained skills in ERP customization and Python. The deployment and Docker courses equipped me to manage the entire application lifecycle, from containerization to production deployment, ensuring scalability and efficiency.',
-      es: 'Formación especializada enfocada en fortalecer mi perfil full-stack. El curso de Full Stack consolidó mis bases en desarrollo web. Con Odoo, adquirí habilidades en la personalización de ERP y desarrollo en Python. Los cursos de deploy y Docker me han capacitado para gestionar el ciclo de vida completo de las aplicaciones, desde la contenerización hasta el despliegue en producción, asegurando escalabilidad y eficiencia.'
+    en: 'Specialized training focused on strengthening my full-stack profile. The Full Stack course solidified my core web development foundation. With Odoo, I gained skills in ERP customization and Python. The deployment and Docker courses equipped me to manage the entire application lifecycle, from containerization to production deployment, ensuring scalability and efficiency.',
+    es: 'Formación especializada enfocada en fortalecer mi perfil full-stack. El curso de Full Stack consolidó mis bases en desarrollo web. Con Odoo, adquirí habilidades en la personalización de ERP y desarrollo en Python. Los cursos de deploy y Docker me han capacitado para gestionar el ciclo de vida completo de las aplicaciones, desde la contenerización hasta el despliegue en producción, asegurando escalabilidad y eficiencia.'
   },
-  
+
   // Nombres de materias y cursos
   courseWebDev: { en: 'Web Development Intro', es: 'Introducción al Desarrollo Web' },
   courseArch: { en: 'Computer Architecture', es: 'Arquitectura de Computadoras' },
@@ -206,29 +206,57 @@ export const translations: AppStrings = {
   courseDocker: { en: 'Docker Professional', es: 'Profesional de Docker' },
 
   // --- EXPERIENCE ITEMS (ACTUALIZADOS) ---
-  exp1Title: { en: 'High School Physics Teacher', es: 'Profesor de Física' },
-  exp1Institution: { en: 'General Council of Education', es: 'Consejo General de Educación' },
-  exp1Description: { 
-    en: 'As a high school teacher, I apply innovative teaching strategies based on a solid foundation in pedagogy. My focus is on providing a dynamic and participatory education, motivating students to explore and understand science practically in a stimulating and collaborative learning environment.',
-    es: 'Como profesor de nivel secundario, aplico estrategias didácticas innovadoras en base a una sólida formación en pedagogía. Mi enfoque se centra en brindar una educación dinámica y participativa, motivando a los estudiantes a explorar y comprender la ciencia de manera práctica en un ambiente de aprendizaje estimulante y colaborativo.'
+  // Reemplaza las claves antiguas con estas nuevas, más descriptivas
+  exp1Title: {
+    en: 'Full-Stack Web Development "Tu Seguro Online"',
+    es: 'Desarrollo Web Full-Stack "Tu Seguro Online"'
   },
-  exp2Title: { en: 'Full Stack Web Developer', es: 'Desarrollador Web Full Stack' },
-  exp2Institution: { en: 'Freelance', es: 'Freelance' },
-  exp2Description: { 
-    en: "As a freelance developer, I've delivered custom web solutions for diverse business needs. Key projects include developing e-commerce platforms with WordPress and WooCommerce, building an interactive online quoting tool with React that integrates external APIs, and creating a full-stack survey builder (Angular, NestJS, PostgreSQL), showcasing my ability to manage the entire development lifecycle.",
-    es: 'Como desarrollador freelance, he entregado soluciones web a medida para diversas necesidades. Mis proyectos incluyen el desarrollo de plataformas e-commerce con WordPress y WooCommerce, la creación de un cotizador online interactivo con React y la integración de APIs externas, y la construcción de una aplicación full-stack para crear encuestas (Angular, NestJS, PostgreSQL), demostrando mi capacidad para manejar el ciclo de desarrollo completo.'
+  exp1Institution: {
+    en: 'Freelance | Project for Sebastián Bustti',
+    es: 'Freelance | Proyecto para Sebastián Bustti'
   },
-  exp3Title: { en: 'Guide & Project Coordinator', es: 'Guía y Coordinador de Proyectos' },
-  exp3Institution: { en: "'Costa Ciencia' Interactive Museum", es: "Museo Interactivo 'Costa Ciencia'" },
-  exp3Description: { 
-    en: 'As a guide, I provided unique educational experiences. As a coordinator, I led projects and teams for exhibitions, managed social media, and ensured effective communication, strengthening my teamwork and goal-oriented skills.',
-    es: 'Como guía, brindé experiencias educativas únicas a los visitantes. Como coordinador, lideré proyectos y equipos para exposiciones, manejé redes sociales y aseguré una comunicación efectiva, desarrollando mis habilidades para trabajar en equipo y lograr objetivos.'
+  exp1Description: {
+    en: 'Developed a comprehensive full-stack platform for an insurance broker to manage client leads. The system features a public-facing form for quote requests and a private admin dashboard for lead management.',
+    es: 'Desarrollo de una plataforma full-stack completa para un productor asesor de seguros, destinada a la gestión de clientes potenciales. El sistema cuenta con un formulario público para solicitar cotizaciones y un dashboard de administración privado para gestionar los leads.'
   },
-  exp4Title: { en: 'Administrative & Customer Service', es: 'Administrativo y Atención al Público' },
-  exp4Institution: { en: "'Los Galgos' Athletic Association", es: "Asociación Atlética 'Los Galgos'" },
-  exp4Description: { 
-    en: 'I was responsible for recording and controlling sales, coordinating groups to meet objectives, and resolving issues. In customer service, I handled direct sales and ensured client satisfaction, developing skills in data management, team coordination, and customer care.',
-    es: 'Fui responsable de registrar y controlar ventas, coordinar grupos para cumplir objetivos y resolver problemas. En atención al público, trabajé en ventas directas y aseguré la satisfacción del cliente, desarrollando habilidades en manejo de información, coordinación de equipos y atención al cliente.'
+
+  exp2Title: {
+    en: 'E-commerce Web Development "En un Toke"',
+    es: 'Desarrollo Web E-commerce "En un Toke"'
+  },
+  exp2Institution: {
+    en: 'Freelance | Project for Mauro Quinteros',
+    es: 'Freelance | Proyecto para Mauro Quinteros'
+  },
+  exp2Description: {
+    en: 'Built and configured a full e-commerce site using WordPress and WooCommerce. Integrated a payment gateway (Mercado Pago), shipping logistics (Correo Argentino), and implemented the Meta Pixel and Conversion API for advanced ad tracking.',
+    es: 'Construcción y configuración de un e-commerce completo con WordPress y WooCommerce. Se integró una pasarela de pagos (Mercado Pago), logística de envíos (Correo Argentino) y se implementó el Píxel de Meta y la API de Conversiones para un seguimiento avanzado de publicidad.'
+  },
+
+  exp3Title: {
+    en: 'Full-Stack Personal Project "Easy Survey"',
+    es: 'Proyecto Personal Full-Stack "Easy Survey"'
+  },
+  exp3Institution: {
+    en: 'University Collaborative Project',
+    es: 'Proyecto Colaborativo Universitario'
+  },
+  exp3Description: {
+    en: "In this collaborative project, I was responsible for UI/UX design and branding, frontend development with Angular consuming API endpoints, and the full application deployment on Render and Neon.",
+    es: "En este proyecto colaborativo, fui responsable del diseño UI/UX y branding, el desarrollo frontend con Angular consumiendo endpoints de la API y el despliegue completo de la aplicación en Render y Neon."
+  },
+
+  exp4Title: {
+    en: 'High School Physics Teacher',
+    es: 'Profesor de Física de Nivel Secundario'
+  },
+  exp4Institution: {
+    en: 'General Council of Education',
+    es: 'Consejo General de Educación'
+  },
+  exp4Description: {
+    en: 'My teaching role honed crucial soft skills applicable to development, such as effective communication for explaining complex concepts, project planning for curriculum design, and team management in the classroom.',
+    es: 'Mi rol docente perfeccionó habilidades blandas cruciales para el desarrollo, como la comunicación efectiva para explicar conceptos complejos, la planificación de proyectos para el diseño curricular y la gestión de equipos en el aula.'
   },
 
   // Skills

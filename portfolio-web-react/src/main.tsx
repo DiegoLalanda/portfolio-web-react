@@ -1,7 +1,15 @@
+// src/main.tsx
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import './index.css'; // <--- ¡ESTA LÍNEA ES CRUCIAL!
+import './index.css';
+
+// AÑADE ESTAS CUATRO LÍNEAS AQUÍ:
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-coverflow';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
