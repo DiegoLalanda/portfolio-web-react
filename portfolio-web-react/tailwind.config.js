@@ -14,6 +14,8 @@ export default {
         // --- ¡Añadimos las animaciones del carrusel aquí también! ---
         'scroll': 'scroll 100s linear infinite',
         'scroll-reverse': 'scroll 100s linear infinite reverse',
+
+        'swipe-indicator': 'swipeIndicator 2s ease-in-out infinite', 
       },
       keyframes: {
         fadeInUp: {
@@ -28,6 +30,10 @@ export default {
         scroll: {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-50%)' },
+        },
+        swipeIndicator: { // <-- AÑADE ESTE BLOQUE
+          '0%, 100%': { transform: 'translateX(-10px)' },
+          '50%': { transform: 'translateX(10px)' },
         }
       },
       fontFamily: {

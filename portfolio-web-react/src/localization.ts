@@ -99,6 +99,17 @@ export interface AppStrings {
   project1Desc: LocalizedString;
   project2Title: LocalizedString;
   project2Desc: LocalizedString;
+  projectEasySurveyTitle: LocalizedString;
+  projectEasySurveyDesc: LocalizedString;
+  projectTuSeguroTitle: LocalizedString;
+  projectTuSeguroDesc: LocalizedString;
+  projectVerdeNidoTitle: LocalizedString;
+  projectVerdeNidoDesc: LocalizedString;
+  projectApiReclamosTitle: LocalizedString;
+  projectApiReclamosDesc: LocalizedString;
+  projectEnUnTokeTitle: LocalizedString;
+  projectEnUnTokeDesc: LocalizedString;
+
 
   // Contact
   contactTitle: LocalizedString;
@@ -265,13 +276,43 @@ export const translations: AppStrings = {
   softSkills: { en: 'Soft Skills', es: 'Habilidades Blandas' },
 
   // Projects
-  projectsTitle: { en: 'Projects', es: 'Proyectos' },
-  viewProject: { en: 'View Project', es: 'Ver Proyecto' },
-  viewRepo: { en: 'View Repository', es: 'Ver Repositorio' },
+  projectsTitle: { en: 'Projects', es: 'Proyectos' }, // <-- AÑADIDA
+  viewProject: { en: 'View Project', es: 'Ver Proyecto' }, // <-- AÑADIDA
+  viewRepo: { en: 'View Repository', es: 'Ver Repositorio' }, // <-- AÑADIDA
   project1Title: { en: 'Personal Web Portfolio', es: 'Portfolio Web Personal' },
   project1Desc: { en: 'My personal portfolio, developed with Angular for the front-end and a Java Spring Boot backend. A project to showcase my skills and achievements as a web developer. Deployed on cloud servers.', es: 'Mi portfolio personal, desarrollado con Angular en el front-end y un backend en Java con Spring Boot. Un proyecto para mostrar mis habilidades y logros como desarrollador. Desplegado en servidores en la nube.' },
   project2Title: { en: 'Hotel Website (React)', es: 'Sitio Web Hotelero (React)' },
   project2Desc: { en: 'Dynamic front-end development for a hotel company using React.js. Features responsive design and consumption of an external Node.js API to display dynamic information.', es: 'Desarrollo de un front-end dinámico para una empresa hotelera utilizando React.js. Cuenta con diseño responsivo y consume una API externa de Node.js para mostrar información dinámica.' },
+
+  // --- AÑADE ESTAS NUEVAS CLAVES ---
+  projectEasySurveyTitle: { en: 'Easy Survey', es: 'Easy Survey' },
+  projectEasySurveyDesc: {
+    en: 'Anonymous survey system that guarantees participant privacy. A Creator can manage their surveys via a secure link sent by email, without needing a login.',
+    es: 'Sistema de Encuestas Anónimas que garantiza la privacidad del participante. Un Creador puede gestionar sus encuestas a través de un enlace seguro enviado por email, sin necesidad de login.'
+  },
+  projectTuSeguroTitle: { en: 'Tu Seguro Online', es: 'Tu Seguro Online' },
+  projectTuSeguroDesc: {
+    en: 'Full-Stack platform for managing vehicle insurance quotes, featuring a smart form for users and a secure admin dashboard for lead management.',
+    es: 'Plataforma Full-Stack para la gestión de cotizaciones de seguros de vehículos, con un formulario inteligente para usuarios y un dashboard seguro para la gestión de leads.'
+  },
+  projectVerdeNidoTitle: { en: 'Verde Nido', es: 'Verde Nido' },
+  projectVerdeNidoDesc: {
+    en: 'Final academic project for a web platform to discover and book stays in nature-focused accommodations, featuring an advanced search filter and admin CRUD.',
+    es: 'Trabajo final académico para una plataforma web que permite descubrir y reservar estancias en alojamientos rodeados de naturaleza, con filtro de búsqueda avanzado y CRUD de administración.'
+  },
+  // --- API DE RECLAMOS (ACTUALIZADO) ---
+  projectApiReclamosTitle: { en: 'Dealership Claims API v2.0', es: 'API Gestión de Reclamos v2.0' },
+  projectApiReclamosDesc: {
+    en: 'Robust RESTful API for a dealership claims management system, migrated to PostgreSQL with Sequelize ORM and interactive Swagger documentation.',
+    es: 'API RESTful robusta para un sistema de gestión de reclamos de concesionaria, migrada a PostgreSQL con el ORM Sequelize y documentación interactiva con Swagger.'
+  },
+
+  // --- EN UN TOKE (NUEVO) ---
+  projectEnUnTokeTitle: { en: 'E-commerce "En un Toke"', es: 'E-commerce "En un Toke"' },
+  projectEnUnTokeDesc: {
+    en: 'Full e-commerce setup using WordPress and WooCommerce, including payment gateway integration and optimization of Meta ad conversion campaigns.',
+    es: 'Configuración de e-commerce completo con WordPress y WooCommerce, incluyendo integración de pasarela de pagos y optimización de campañas de conversión en Meta Ads.'
+  },
 
   // Contact
   contactTitle: { en: 'Contact', es: 'Contacto' },
