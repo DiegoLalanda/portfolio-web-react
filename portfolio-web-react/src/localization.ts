@@ -116,6 +116,7 @@ export interface AppStrings {
   contactSubtitle: LocalizedString;
   formName: LocalizedString;
   formEmail: LocalizedString;
+  formSubject: LocalizedString;
   formMessage: LocalizedString;
   formSend: LocalizedString;
   formSuccess: LocalizedString;
@@ -319,6 +320,7 @@ export const translations: AppStrings = {
   contactSubtitle: { en: 'Have a project in mind or just want to say hi? Feel free to reach out!', es: '¿Tienes un proyecto en mente o simplemente quieres saludar? ¡No dudes en contactarme!' },
   formName: { en: 'Your Name', es: 'Tu Nombre' },
   formEmail: { en: 'Your Email Address', es: 'Dirección de Correo' },
+  formSubject: { en: 'Subject', es: 'Asunto' },
   formMessage: { en: 'Message', es: 'Mensaje' },
   formSend: { en: 'Send Message', es: 'Enviar Mensaje' },
   formSuccess: { en: 'Message sent successfully! I will get back to you soon.', es: '¡Mensaje enviado con éxito! Me pondré en contacto contigo pronto.' },

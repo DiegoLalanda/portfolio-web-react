@@ -8,7 +8,7 @@ import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 const socialLinks: SocialLink[] = [
   { name: 'GitHub', url: 'https://github.com/DiegoLalanda', icon: FaGithub },
   { name: 'LinkedIn', url: 'https://www.linkedin.com/in/diego-lalanda-9576b21b8', icon: FaLinkedin },
-  { name: 'Instagram', url: 'https://www.instagram.com/diegol_4526/', icon: FaInstagram },
+  { name: 'Instagram', url: 'https://www.instagram.com/lala.dev.tech/', icon: FaInstagram },
 ];
 
 export const Hero: React.FC = () => {

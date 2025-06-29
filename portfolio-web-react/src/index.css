@@ -19,3 +19,66 @@ body {
 .font-display {
   font-family: theme('fontFamily.display');
 }
+
+/* === INICIO DE ESTILOS DE SCROLLBAR PERSONALIZADO === */
+
+/* Para navegadores WebKit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 10px; /* Ancho del scrollbar */
+}
+
+/* El "canal" o la barra de fondo del scrollbar */
+::-webkit-scrollbar-track {
+  /* Color para el modo claro */
+  background-color: theme('colors.slate.200');
+}
+
+/* El "pulgar" o la parte que se arrastra del scrollbar */
+::-webkit-scrollbar-thumb {
+  /* Color para el modo claro */
+  background-color: theme('colors.blue.500');
+  border-radius: 10px;
+  border: 2px solid theme('colors.slate.200'); /* Crea un pequeño borde alrededor del pulgar */
+}
+
+/* Estilo del pulgar al pasar el cursor */
+::-webkit-scrollbar-thumb:hover {
+  /* Color para el modo claro */
+  background-color: theme('colors.blue.600');
+}
+
+
+/* --- ESTILOS PARA MODO OSCURO --- */
+/* Aplicamos los estilos cuando la clase .dark está en el html */
+
+html.dark ::-webkit-scrollbar-track {
+  /* Color para el modo oscuro */
+  background-color: theme('colors.slate.800');
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  /* Color para el modo oscuro */
+  background-color: theme('colors.blue.400');
+  border-color: theme('colors.slate.800');
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  /* Color para el modo oscuro */
+  background-color: theme('colors.blue.300');
+}
+
+
+/* Para Firefox */
+/* Firefox usa propiedades diferentes y menos personalizables */
+* {
+  /* Modo Claro: color del pulgar y color del canal */
+  scrollbar-color: theme('colors.blue.500') theme('colors.slate.200');
+  scrollbar-width: thin;
+}
+
+html.dark * {
+  /* Modo Oscuro: color del pulgar y color del canal */
+  scrollbar-color: theme('colors.blue.400') theme('colors.slate.800');
+}
+
+/* === FIN DE ESTILOS DE SCROLLBAR === */

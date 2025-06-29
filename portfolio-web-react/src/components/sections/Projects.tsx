@@ -75,7 +75,7 @@ const ImageCarousel: React.FC<{ images: string[], title: string; isModal?: boole
 
   return (
     <div className={containerClasses}>
-      <img src={images[currentIndex]} alt={`${title} - image ${currentIndex + 1}`} className="w-full h-full object-contain duration-500 transition-all bg-slate-100 dark:bg-slate-900"/>
+      <img src={images[currentIndex]} loading="lazy" alt={`${title} - image ${currentIndex + 1}`} className="w-full h-full object-contain duration-500 transition-all bg-slate-100 dark:bg-slate-900"/>
       {images.length > 1 && (
         <>
           <button onClick={(e) => handleInteraction(e, 'prev')} aria-label="Previous image" className={`absolute top-1/2 -translate-y-1/2 p-2 bg-black/40 text-white rounded-full transition-opacity z-10 ${isModal ? 'left-4 opacity-70 hover:opacity-100' : 'opacity-0 group-hover:opacity-100 left-2'}`}>

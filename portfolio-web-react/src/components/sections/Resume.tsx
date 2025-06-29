@@ -6,15 +6,14 @@ import type { TimelineItem } from '../../types';
 import { translations } from '../../localization';
 import { FaGraduationCap, FaBriefcase, FaChevronDown, FaFileDownload } from 'react-icons/fa';
 
-// --- DATOS DE EDUCACIÓN (Sin cambios) ---
+// --- DATOS DE EDUCACIÓN (CON CERTIFICADOS) ---
 const educationData: TimelineItem[] = [
-  // ... (tus datos de educación no cambian)
   {
     id: 'edu1',
     title: translations.edu1Title,
     institution: translations.edu1Institution,
     logoUrl: 'src/assets/logo-uner.png',
-    years: '2023 - En curso',
+    years: '2023 - 2025',
     description: translations.edu1Description,
     gpa: '9.36',
     courses: [
@@ -23,7 +22,8 @@ const educationData: TimelineItem[] = [
       { name: translations.courseDB, grade: 9 },
       { name: translations.courseProg3, grade: 8 },
     ],
-    certificateUrl: '/certificados/certificado-analitico-uner.pdf'
+    // ENLACE AL CERTIFICADO DE LA UNER
+    certificateUrl: 'https://drive.google.com/file/d/1D1ACjFFrJd7JxRIHE9tYuuL1EMFgXAog/view?usp=sharing'
   },
   {
     id: 'edu2',
@@ -39,22 +39,25 @@ const educationData: TimelineItem[] = [
       { name: translations.courseMath2, grade: 10 },
       { name: translations.courseAstrophysics, grade: 10 },
     ],
-    certificateUrl: '/certificados/titulo-profesorado-fisica.pdf'
+    // ENLACE AL CERTIFICADO DEL PROFESORADO
+    certificateUrl: 'https://drive.google.com/file/d/1iWjRxQ1N0O8s7JiG97jwTwhTpMvwTB6d/view?usp=sharing'
   },
   {
     id: 'edu3',
     title: translations.edu3Title,
     institution: translations.edu3Institution,
     logoUrl: 'src/assets/logo-arg-programa.png',
-    years: '2023 - 2024',
+    years: '2023 - 2025',
     description: translations.edu3Description,
     highlightedCoursesTitle: { en: 'Completed Courses', es: 'Cursos Completados' },
     courses: [
-        { name: translations.courseFullStackAP, grade: '2023' },
-        { name: translations.courseOdoo, grade: '2024' },
-        { name: translations.courseDeploy, grade: '2024' },
-        { name: translations.courseDocker, grade: '2024' },
+      { name: translations.courseFullStackAP, grade: '2023' },
+      { name: translations.courseOdoo, grade: '2024' },
+      { name: translations.courseDeploy, grade: '2024' },
+      { name: translations.courseDocker, grade: '2024' },
     ],
+    // ENLACE A LA CARPETA DE CERTIFICADOS MÚLTIPLES
+    certificateUrl: 'https://drive.google.com/drive/folders/19eqXW5I5aF3tGGyM3zyh3FUHdXISSYUR?usp=sharing'
   },
 ];
 
@@ -104,8 +107,8 @@ const experienceData: TimelineItem[] = [
       { name: { en: 'NestJS', es: 'NestJS' }, grade: 'Backend' },
       { name: { en: 'Angular', es: 'Angular' }, grade: 'Frontend' },
       { name: { en: 'PostgreSQL', es: 'PostgreSQL' }, grade: 'DB' },
-      { name: { en: 'NGINX', es: 'NGINX' }, grade: 'Proxy' },
-      { name: { en: 'PM2', es: 'PM2' }, grade: 'Process Manager' },
+      { name: { en: 'Render & Neon', es: 'Render & Neon' }, grade: 'Deploy' },
+      { name: { en: 'TypeORM', es: 'TypeORM' }, grade: 'ORM' }
     ]
   },
   {
@@ -117,9 +120,9 @@ const experienceData: TimelineItem[] = [
     description: translations.exp4Description,
     highlightedCoursesTitle: { en: 'Transferred Skills', es: 'Habilidades Transferidas' },
     courses: [ // Reutilizamos 'courses' para las habilidades blandas
-        { name: { en: 'Complex Communication', es: 'Comunicación Compleja' }, grade: 'Soft Skill' },
-        { name: { en: 'Project Planning', es: 'Planificación' }, grade: 'Soft Skill' },
-        { name: { en: 'Team Leadership', es: 'Liderazgo' }, grade: 'Soft Skill' },
+      { name: { en: 'Complex Communication', es: 'Comunicación Compleja' }, grade: 'Soft Skill' },
+      { name: { en: 'Project Planning', es: 'Planificación' }, grade: 'Soft Skill' },
+      { name: { en: 'Team Leadership', es: 'Liderazgo' }, grade: 'Soft Skill' },
     ]
   },
 ];
@@ -132,21 +135,21 @@ const TimelineCard: React.FC<{ item: TimelineItem; icon: React.ReactNode }> = ({
   // Determina el color basado en el tipo de 'grade' (calificación, año o tipo de skill)
   const getBadgeColor = (grade: number | string) => {
     if (typeof grade === 'number' || !isNaN(parseFloat(grade))) {
-        const numericGrade = typeof grade === 'string' ? parseFloat(grade) : grade;
-        if (numericGrade >= 9) return 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200';
-        if (numericGrade >= 8) return 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200';
-        return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200';
+      const numericGrade = typeof grade === 'string' ? parseFloat(grade) : grade;
+      if (numericGrade >= 9) return 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200';
+      if (numericGrade >= 8) return 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200';
+      return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200';
     }
     // Para badges de texto como 'Backend', 'Frontend', 'Soft Skill'
-    switch(grade.toLowerCase()) {
-        case 'backend': return 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200';
-        case 'frontend': return 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200';
-        case 'db': return 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200';
-        case 'security': return 'bg-rose-100 text-rose-800 dark:bg-rose-900 dark:text-rose-200';
-        case 'deploy': return 'bg-teal-100 text-teal-800 dark:bg-teal-900 dark:text-teal-200';
-        case 'marketing': return 'bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200';
-        case 'soft skill': return 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200';
-        default: return 'bg-slate-100 text-slate-800 dark:bg-slate-700 dark:text-slate-200';
+    switch (grade.toLowerCase()) {
+      case 'backend': return 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200';
+      case 'frontend': return 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200';
+      case 'db': return 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200';
+      case 'security': return 'bg-rose-100 text-rose-800 dark:bg-rose-900 dark:text-rose-200';
+      case 'deploy': return 'bg-teal-100 text-teal-800 dark:bg-teal-900 dark:text-teal-200';
+      case 'marketing': return 'bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200';
+      case 'soft skill': return 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200';
+      default: return 'bg-slate-100 text-slate-800 dark:bg-slate-700 dark:text-slate-200';
     }
   };
 
@@ -159,7 +162,7 @@ const TimelineCard: React.FC<{ item: TimelineItem; icon: React.ReactNode }> = ({
       </div>
       <div className="flex items-start mb-2">
         {item.logoUrl && (
-          <img src={item.logoUrl} alt={`${item.institution[language]} logo`} className="w-10 h-10 rounded-full mr-4 object-contain bg-white" />
+          <img src={item.logoUrl} alt={`${item.institution[language]} logo`} loading="lazy" className="w-10 h-10 rounded-full mr-4 object-contain bg-white" />
         )}
         <div>
           <h3 className="text-xl font-semibold text-slate-800 dark:text-slate-100">{item.title[language]}</h3>
@@ -204,7 +207,7 @@ const TimelineCard: React.FC<{ item: TimelineItem; icon: React.ReactNode }> = ({
               </div>
             </div>
           )}
-           {item.courses && item.courses.length > 0 && (
+          {item.courses && item.courses.length > 0 && (
             <div>
               <h4 className="text-xs font-semibold text-slate-600 dark:text-slate-400 mb-3 uppercase tracking-wider">
                 {item.highlightedCoursesTitle ? item.highlightedCoursesTitle[language] : t('highlightedCoursesTitle')}
