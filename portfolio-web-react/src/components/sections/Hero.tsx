@@ -4,6 +4,8 @@ import { IconLink } from '../common/IconLink';
 import type { SocialLink } from '../../types';
 import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
+// Importamos la imagen como un módulo. `profilePhoto` ahora contendrá la URL final.
+import profilePhoto from '../../assets/foto-perfil-diego.svg';
 
 const socialLinks: SocialLink[] = [
   { name: 'GitHub', url: 'https://github.com/DiegoLalanda', icon: FaGithub },
@@ -28,7 +30,7 @@ export const Hero: React.FC = () => {
       <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
         <div className={`mx-auto mb-8 ${animationClass('delay-100')}`}>
           <img
-            src="src/assets/foto-perfil-diego.svg"
+            src={profilePhoto}
             alt={t('heroName')}
             className="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover mx-auto shadow-2xl border-4 border-white dark:border-slate-700 transform group-hover:scale-105 transition-transform duration-500 animate-subtle-bob"
           />

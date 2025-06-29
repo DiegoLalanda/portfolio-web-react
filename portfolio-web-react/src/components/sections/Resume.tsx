@@ -5,6 +5,14 @@ import { AnimatedCard } from '../common/AnimatedCard';
 import type { TimelineItem } from '../../types';
 import { translations } from '../../localization';
 import { FaGraduationCap, FaBriefcase, FaChevronDown, FaFileDownload } from 'react-icons/fa';
+// --- ¡IMPORATAMOS TODOS LOS LOGOS NECESARIOS! ---
+import logoUner from '../../assets/logo-uner.png';
+import logoIsdica from '../../assets/logo-isdica.png';
+import logoArgPrograma from '../../assets/logo-arg-programa.png';
+import logoTuSeguro from '../../assets/logo-tu-seguro-online.png';
+import logoEnUnToke from '../../assets/logo-en-un-toke.png';
+import logoEasySurvey from '../../assets/logo-easy-survey.jpg';
+import logoCge from '../../assets/logo-cge.png';
 
 // --- DATOS DE EDUCACIÓN (CON CERTIFICADOS) ---
 const educationData: TimelineItem[] = [
@@ -12,7 +20,7 @@ const educationData: TimelineItem[] = [
     id: 'edu1',
     title: translations.edu1Title,
     institution: translations.edu1Institution,
-    logoUrl: 'src/assets/logo-uner.png',
+    logoUrl: logoUner,
     years: '2023 - 2025',
     description: translations.edu1Description,
     gpa: '9.36',
@@ -29,7 +37,7 @@ const educationData: TimelineItem[] = [
     id: 'edu2',
     title: translations.edu2Title,
     institution: translations.edu2Institution,
-    logoUrl: 'src/assets/logo-isdica.png',
+    logoUrl: logoIsdica,
     years: '2019 - 2022',
     description: translations.edu2Description,
     gpa: '9.35',
@@ -46,7 +54,7 @@ const educationData: TimelineItem[] = [
     id: 'edu3',
     title: translations.edu3Title,
     institution: translations.edu3Institution,
-    logoUrl: 'src/assets/logo-arg-programa.png',
+    logoUrl: logoArgPrograma,
     years: '2023 - 2025',
     description: translations.edu3Description,
     highlightedCoursesTitle: { en: 'Completed Courses', es: 'Cursos Completados' },
@@ -67,7 +75,7 @@ const experienceData: TimelineItem[] = [
     id: 'exp1',
     title: translations.exp1Title,
     institution: translations.exp1Institution,
-    logoUrl: 'src/assets/logo-tu-seguro-online.png', // <-- RECUERDA AÑADIR UN LOGO
+    logoUrl: logoTuSeguro, // <-- RECUERDA AÑADIR UN LOGO
     years: '2025',
     description: translations.exp1Description,
     highlightedCoursesTitle: { en: 'Key Technologies', es: 'Tecnologías Clave' },
@@ -84,7 +92,7 @@ const experienceData: TimelineItem[] = [
     id: 'exp2',
     title: translations.exp2Title,
     institution: translations.exp2Institution,
-    logoUrl: 'src/assets/logo-en-un-toke.png', // <-- RECUERDA AÑADIR UN LOGO
+    logoUrl: logoEnUnToke, // <-- RECUERDA AÑADIR UN LOGO
     years: '2025',
     description: translations.exp2Description,
     highlightedCoursesTitle: { en: 'Key Integrations', es: 'Integraciones Clave' },
@@ -99,7 +107,7 @@ const experienceData: TimelineItem[] = [
     id: 'exp3',
     title: translations.exp3Title,
     institution: translations.exp3Institution,
-    logoUrl: 'src/assets/logo-easy-survey.jpg', // <-- RECUERDA AÑADIR UN LOGO
+    logoUrl: logoEasySurvey, // <-- RECUERDA AÑADIR UN LOGO
     years: '2025',
     description: translations.exp3Description,
     highlightedCoursesTitle: { en: 'Tech Stack', es: 'Stack Tecnológico' },
@@ -115,7 +123,7 @@ const experienceData: TimelineItem[] = [
     id: 'exp4',
     title: translations.exp4Title,
     institution: translations.exp4Institution,
-    logoUrl: 'src/assets/logo-cge.png',
+    logoUrl: logoCge,
     years: '2023 - Actualidad',
     description: translations.exp4Description,
     highlightedCoursesTitle: { en: 'Transferred Skills', es: 'Habilidades Transferidas' },
