@@ -65,7 +65,7 @@ export const About: React.FC = () => {
       </div>
       <div className="mt-12 text-center">
         <a
-          href="src/assets/CV-Web.pdf" // Replace with your actual CV link
+          href="CV-Web.pdf"
           download="Diego-Lalanda-CV.pdf"
           className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-transform duration-300 ease-in-out hover:scale-105 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:focus:ring-offset-slate-900"
         >
