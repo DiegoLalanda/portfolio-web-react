@@ -8,11 +8,11 @@ import { projectImages } from '../../data/projectImages';
 
 // Importaciones de Swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { A11y } from 'swiper/modules';
+import { A11y, EffectCoverflow } from 'swiper/modules';
 
 // --- DATOS DE PROYECTOS (SIN CAMBIOS) ---
 const projectData: ProjectType[] = [
-    {
+  {
     id: 'proj-easy-survey',
     title: translations.projectEasySurveyTitle,
     description: translations.projectEasySurveyDesc,
@@ -75,7 +75,7 @@ const ImageCarousel: React.FC<{ images: string[], title: string; isModal?: boole
 
   return (
     <div className={containerClasses}>
-      <img src={images[currentIndex]} loading="lazy" alt={`${title} - image ${currentIndex + 1}`} className="w-full h-full object-contain duration-500 transition-all bg-slate-100 dark:bg-slate-900"/>
+      <img src={images[currentIndex]} loading="lazy" alt={`${title} - image ${currentIndex + 1}`} className="w-full h-full object-contain duration-500 transition-all bg-slate-100 dark:bg-slate-900" />
       {images.length > 1 && (
         <>
           <button onClick={(e) => handleInteraction(e, 'prev')} aria-label="Previous image" className={`absolute top-1/2 -translate-y-1/2 p-2 bg-black/40 text-white rounded-full transition-opacity z-10 ${isModal ? 'left-4 opacity-70 hover:opacity-100' : 'opacity-0 group-hover:opacity-100 left-2'}`}>
@@ -140,9 +140,7 @@ const ProjectModal: React.FC<{ project: ProjectType | null; onClose: () => void 
   );
 };
 
-
-
-// --- COMPONENTE Projects (CON MÁSCARA DE GRADIENTE) ---
+// --- COMPONENTE Projects (CON CONFIGURACIÓN RESPONSIVE FINAL) ---
 export const Projects: React.FC = () => {
   const { t } = useLanguage();
   const [selectedProject, setSelectedProject] = useState<ProjectType | null>(null);
@@ -157,32 +155,52 @@ export const Projects: React.FC = () => {
     <>
       <SectionWrapper id="projects" title={t('projectsTitle')}>
         {/* El `div` que envuelve a Swiper ahora tiene el estilo para la máscara */}
-        <div 
-          className="relative w-full group"
-          style={{ 
-            maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
-            WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' // Para compatibilidad con Safari/Webkit
-          }}
-        >
+        <div className="relative w-full group"
+          style={{
+            maskImage: 'linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent, black 5%, black 95%, transparent)' // Para compatibilidad con Safari/Webkit
+          }}>
           <Swiper
-            modules={[A11y]}
-            autoplay={false}
+            // CAMBIO 2: Añadimos EffectCoverflow a los módulos
+            modules={[A11y, EffectCoverflow]}
             loop={true}
-            slidesPerView={'auto'}
-            spaceBetween={30}
-            centeredSlides={true}
             grabCursor={true}
+            centeredSlides={true}
             className="!py-8"
             onSliderMove={() => setShowSwipeIndicator(false)}
             onSlideChangeTransitionStart={() => setShowSwipeIndicator(false)}
+
+            // CAMBIO 3: Usamos breakpoints para tener configuraciones DIFERENTES
+            // para móvil y escritorio.
+            breakpoints={{
+              // Configuración para MÓVIL (por defecto, hasta 768px)
+              320: {
+                slidesPerView: 1.25, // Muestra 1 y un cuarto, para que se vea el "trozo"
+                spaceBetween: 15,
+                effect: 'slide', // Efecto simple de deslizamiento en móvil
+              },
+              // Configuración para ESCRITORIO (a partir de 768px)
+              768: {
+                effect: 'coverflow', // Activamos el efecto coverflow
+                slidesPerView: 'auto', // Dejamos que el ancho del slide lo controle
+                coverflowEffect: {
+                  rotate: 0,
+                  stretch: 50, // Espacio entre tarjetas
+                  depth: 100,
+                  modifier: 1,
+                  slideShadows: true,
+                },
+              },
+            }}
           >
             {projectData.map((project) => (
               <SwiperSlide
                 key={project.id}
-                className="!w-[80%] md:!w-[60%] lg:!w-[45%]"
+                // CAMBIO 4: El ancho ahora es diferente para móvil y escritorio
+                className="!w-[80%] md:!w-[50%] lg:!w-[40%]"
               >
-                {/* La opacidad ahora se maneja con el grupo del contenedor principal */}
-                <div className="transition-opacity duration-300 group-[.swiper-slide-active]:opacity-100">
+                {/* La opacidad y escala ahora se aplican solo en escritorio */}
+                <div className="md:transition-all md:duration-400 md:group-[.swiper-slide-active]:opacity-100 md:group-[.swiper-slide-active]:scale-100 md:scale-90">
                   <ProjectItem project={project} onOpenModal={() => setSelectedProject(project)} />
                 </div>
               </SwiperSlide>
@@ -190,17 +208,17 @@ export const Projects: React.FC = () => {
           </Swiper>
 
           {showSwipeIndicator && (
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none opacity-0 md:opacity-100">
-              <div className="flex items-center justify-center bg-slate-800/70 text-white rounded-full p-4 shadow-lg animate-pulse">
-                <FaChevronLeft className="animate-swipe-indicator text-xl" />
-                <FaHandPointer className="text-3xl mx-3" />
-                <FaChevronRight className="animate-swipe-indicator text-xl" />
+            <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-20 pointer-events-none flex items-center justify-center">
+              <div className="flex items-center justify-center bg-slate-800/80 text-white rounded-full p-3 shadow-lg animate-pulse">
+                <FaChevronLeft className="animate-swipe-indicator text-lg" />
+                <FaHandPointer className="text-2xl mx-2" />
+                <FaChevronRight className="animate-swipe-indicator text-lg" />
               </div>
             </div>
           )}
         </div>
       </SectionWrapper>
-      
+
       <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
     </>
   );
