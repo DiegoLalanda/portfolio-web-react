@@ -5,11 +5,8 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
 
-// AÑADE ESTAS CUATRO LÍNEAS AQUÍ:
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/effect-coverflow';
+// CAMBIO: Importamos el paquete completo de estilos de Swiper
+//import 'swiper/css/bundle';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
