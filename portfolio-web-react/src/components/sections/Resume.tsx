@@ -31,7 +31,7 @@ const educationData: TimelineItem[] = [
       { name: translations.courseProg3, grade: 8 },
     ],
     // ENLACE AL CERTIFICADO DE LA UNER
-    certificateUrl: 'https://drive.google.com/file/d/1D1ACjFFrJd7JxRIHE9tYuuL1EMFgXAog/view?usp=sharing'
+    certificateUrl: 'https://drive.google.com/file/d/1nZbRoBBFcbdSjEyIgm7hQrLnYC-l45Cc/view?usp=sharing'
   },
   {
     id: 'edu2',
